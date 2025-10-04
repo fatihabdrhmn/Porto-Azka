@@ -1,0 +1,1028 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio Azka Faizadilla Yusra - Mahasiswa Teknik Mesin UPN Veteran Jakarta. Spesialisasi dalam Mechanical Design, CAD, dan Inovasi Teknologi.">
+    <meta property="og:title" content="Azka Faizadilla Yusra - Portfolio">
+    <meta property="og:description" content="Mahasiswa Teknik Mesin UPNVJ | Engineering Innovation & Technology">
+    <meta property="og:type" content="website">
+    <link rel="canonical" href="https://azkafaizadilla.com">
+    <title>Azka Faizadilla Yusra - Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            black: '#0B0B0F',
+                            bg: '#0F0F14',
+                            red: '#B11226',
+                            redDark: '#8E0E1D',
+                            gray: '#9CA3AF'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        body {
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .glass {
+            background: rgba(15, 15, 20, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+
+        .dark .glass {
+            background: rgba(15, 15, 20, 0.8);
+        }
+
+        .light .glass {
+            background: rgba(255, 255, 255, 0.8);
+        }
+
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #B11226;
+            transition: width 0.3s ease;
+        }
+
+        .nav-link.active::after,
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .card-magnetic {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card-magnetic:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(177, 18, 38, 0.3);
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #B11226 0%, #8E0E1D 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .typing-animation {
+            overflow: hidden;
+            white-space: nowrap;
+            border-right: 2px solid #B11226;
+            animation: typing 4s steps(60) 1s forwards, blink 1s step-end infinite;
+            width: 0;
+        }
+
+        @keyframes typing {
+            to { width: 100%; }
+        }
+
+        @keyframes blink {
+            50% { border-color: transparent; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .typing-animation {
+                animation: none;
+                width: 100%;
+                border-right: none;
+            }
+        }
+
+        .ripple {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ripple::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .ripple:active::after {
+            width: 300px;
+            height: 300px;
+        }
+
+        .skill-chip {
+            transition: all 0.3s ease;
+        }
+
+        .skill-chip:hover {
+            transform: translateY(-2px);
+        }
+
+        .skill-chip.active {
+            background: #B11226;
+            color: white;
+        }
+
+        .skill-card {
+            transition: all 0.4s ease;
+        }
+
+        .skill-card.hidden {
+            display: none;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 100;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(4px);
+            animation: fadeIn 0.3s ease;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            animation: slideUp 0.4s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            from { 
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .toast {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            padding: 1rem 1.5rem;
+            background: #B11226;
+            color: white;
+            border-radius: 0.5rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            animation: slideIn 0.4s ease;
+            z-index: 1000;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(400px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        .hero-parallax {
+            transition: transform 0.1s ease-out;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .hero-parallax {
+                transform: none !important;
+            }
+        }
+
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: #B11226;
+            color: white;
+            padding: 8px 16px;
+            text-decoration: none;
+            z-index: 100;
+        }
+
+        .skip-link:focus {
+            top: 0;
+        }
+
+        .focus-visible\:ring:focus-visible {
+            outline: none;
+            ring: 2px solid #B11226;
+        }
+    </style>
+</head>
+<body class="bg-white dark:bg-brand-bg text-gray-900 dark:text-gray-100 transition-colors duration-300">
+    <!-- <a href="#main-content" class="skip-link focus-visible:ring-2">Langsung ke konten</a> -->
+
+    <!-- Navigation -->
+    <header>
+        <nav class="fixed top-0 w-full glass z-50 border-b border-gray-200 dark:border-gray-800">
+            <div class="max-w-6xl mx-auto px-4">
+                <div class="flex justify-between items-center py-4">
+                    <div class="text-xl font-bold">
+                        <span class="gradient-text">Azka F. Yusra</span>
+                    </div>
+                    
+                    <div class="hidden md:flex items-center space-x-6">
+                        <a href="#home" class="nav-link text-gray-700 dark:text-gray-300">Beranda</a>
+                        <a href="#about" class="nav-link text-gray-700 dark:text-gray-300">Tentang</a>
+                        <a href="#skills" class="nav-link text-gray-700 dark:text-gray-300">Keahlian</a>
+                        <!-- <a href="#projects" class="nav-link text-gray-700 dark:text-gray-300">Proyek</a> -->
+                        <a href="#contact" class="nav-link text-gray-700 dark:text-gray-300">Kontak</a>
+                        
+                        <button id="theme-toggle" class="p-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-800 focus-visible:ring-2 ring-brand-red transition" aria-label="Toggle tema">
+                            <svg id="theme-icon-dark" class="w-5 h-5 hidden dark:block" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                            </svg>
+                            <svg id="theme-icon-light" class="w-5 h-5 block dark:hidden" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    
+                    <button id="mobile-menu-btn" class="md:hidden p-2 focus-visible:ring-2 ring-brand-red rounded" aria-label="Toggle menu">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+                
+                <div id="mobile-menu" class="hidden md:hidden pb-4 space-y-2">
+                    <a href="#home" class="block py-2 text-gray-700 dark:text-gray-300 hover:text-brand-red">Beranda</a>
+                    <a href="#about" class="block py-2 text-gray-700 dark:text-gray-300 hover:text-brand-red">Tentang</a>
+                    <a href="#skills" class="block py-2 text-gray-700 dark:text-gray-300 hover:text-brand-red">Keahlian</a>
+                    <a href="#projects" class="block py-2 text-gray-700 dark:text-gray-300 hover:text-brand-red">Proyek</a>
+                    <a href="#contact" class="block py-2 text-gray-700 dark:text-gray-300 hover:text-brand-red">Kontak</a>
+                    
+                    <button id="theme-toggle-mobile" class="flex items-center space-x-2 py-2 focus-visible:ring-2 ring-brand-red rounded">
+                        <span class="dark:hidden">🌙 Mode Gelap</span>
+                        <span class="hidden dark:inline">☀️ Mode Terang</span>
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main id="main-content">
+        <!-- Hero Section -->
+        <section
+          id="home"
+          class="min-h-screen flex items-center justify-center relative overflow-hidden pt-20 scroll-mt-24"
+          style="background: radial-gradient(ellipse at center, #8E0E1D 0%, #0F0F14 70%);"
+        >
+          <div class="absolute inset-0 opacity-10">
+            <div
+              class="absolute inset-0"
+              style="
+                background-image: radial-gradient(circle at 20% 50%, rgba(177, 18, 38, 0.3) 0%, transparent 50%),
+                  radial-gradient(circle at 80% 80%, rgba(177, 18, 38, 0.2) 0%, transparent 50%);
+              "
+            ></div>
+          </div>
+      
+          <div
+            class="text-center px-4 z-10 max-w-4xl hero-parallax"
+            id="hero-content"
+          >
+            <!-- Foto Profil di Hero -->
+            <div class="mb-8 reveal">
+              <div
+                class="w-32 h-32 mx-auto mb-6 rounded-full overflow-hidden flex items-center justify-center bg-gradient-to-br from-brand-red to-brand-redDark relative group shadow-[0_0_40px_rgba(177,18,38,0.5)]"
+              >
+                <img
+                  src="assets/azka-foto.jpg"
+                  alt="Foto Azka Faizadilla Yusra"
+                  class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 ease-out"
+                />
+              </div>
+            </div>
+      
+            <h1
+              class="text-5xl md:text-7xl font-bold mb-6 reveal text-white"
+            >
+              Azka Faizadilla Yusra
+            </h1>
+      
+            <div
+              class="text-xl md:text-2xl mb-8 h-12 flex items-center justify-center reveal"
+            >
+              <span class="typing-animation text-gray-200"
+                >Mahasiswa Teknik Mesin UPN "Veteran" Jakarta</span
+              >
+            </div>
+      
+            <p
+              class="text-lg mb-10 max-w-2xl mx-auto reveal text-gray-300"
+            >
+              Angkatan 2023 | Passionate about Engineering Innovation &
+              Technology
+            </p>
+      
+            <div
+              class="flex flex-col sm:flex-row gap-4 justify-center reveal"
+            >
+              <a
+                href="https://drive.google.com/file/d/1lVHk8WK6onR2InQQl2tOuU-8QyZ7GjgN/view?usp=drivesdk"
+                download
+                class="ripple bg-brand-red hover:bg-brand-redDark text-white px-8 py-3 rounded-full font-semibold transition duration-300 focus-visible:ring-2 ring-white"
+              >
+                📥 Unduh CV
+              </a>
+      
+              <a
+                href="https://wa.me/6281311856317"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="ripple flex items-center justify-center gap-2 bg-[#25D366] text-white dark:bg-[#22c55e] dark:text-white px-8 py-3 rounded-full font-semibold hover:bg-[#1ebe5d] dark:hover:bg-[#16a34a] transition duration-300 focus-visible:ring-2 focus-visible:ring-[#25D366]"
+              >
+                💬 Hubungi via WhatsApp
+              </a>
+            </div>
+          </div>
+        </section>
+      </main>
+      
+
+       <!-- About Section -->
+<section id="about" class="py-20 bg-gray-50 dark:bg-brand-black scroll-mt-24">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 reveal gradient-text">Tentang Saya</h2>
+  
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <!-- Foto Profil -->
+        <div class="reveal">
+          <div class="w-64 h-64 mx-auto bg-gradient-to-br from-brand-red to-brand-redDark rounded-full overflow-hidden flex items-center justify-center relative group shadow-[0_0_60px_rgba(177,18,38,0.4)]">
+            <img src="assets/azka-foto.jpg"
+                 alt="Foto Azka Faizadilla Yusra"
+                 class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 ease-out" />
+          </div>
+        </div>
+  
+        <!-- Deskripsi -->
+        <div class="space-y-6 reveal">
+          <h3 class="text-2xl md:text-3xl font-semibold text-gray-800 dark:text-gray-100">
+            Halo! Saya Azka Faizadilla Yusra
+          </h3>
+  
+          <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+            Saya adalah mahasiswa Teknik Mesin di Universitas Pembangunan Nasional "Veteran" Jakarta (UPNVJ), angkatan 2023.
+            Saya memiliki passion yang besar terhadap inovasi teknologi, desain mekanik, dan pengembangan solusi engineering.
+          </p>
+  
+          <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+            Sebagai mahasiswa yang aktif, saya selalu berusaha mengembangkan kemampuan teknis dan soft skills melalui
+            berbagai proyek akademik, organisasi, dan pengalaman praktis di bidang teknik mesin.
+          </p>
+  
+          <div class="flex gap-4 mt-8">
+            <div class="px-6 py-3 bg-brand-red/10 dark:bg-brand-red/20 border border-brand-red rounded-full">
+              <div class="text-lg font-bold text-brand-red">2023</div>
+              <div class="text-sm text-gray-600 dark:text-gray-400">Tahun Masuk</div>
+            </div>
+            <div class="px-6 py-3 bg-brand-red/10 dark:bg-brand-red/20 border border-brand-red rounded-full">
+              <div class="text-lg font-bold text-brand-red">UPNVJ</div>
+              <div class="text-sm text-gray-600 dark:text-gray-400">Universitas</div>
+            </div>
+            <div class="px-6 py-3 bg-brand-red/10 dark:bg-brand-red/20 border border-brand-red rounded-full">
+                <div class="text-lg font-bold text-brand-red">IPK</div>
+                <div class="text-sm text-gray-600 dark:text-gray-400">3.58</div>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+
+        <!-- Skills Section -->
+        <section id="skills" class="py-20 bg-white dark:bg-brand-bg scroll-m-24">
+            <div class="max-w-6xl mx-auto px-4">
+                <h2 class="text-4xl md:text-5xl font-bold text-center mb-8 reveal gradient-text">Keahlian & Pengalaman</h2>
+                
+                <p class="text-center text-gray-600 dark:text-gray-400 mb-12 reveal">
+                    
+                </p>
+                
+                <!-- Filter Chips -->
+                <div class="flex flex-wrap justify-center gap-3 mb-12 reveal">
+                    <button class="skill-chip active px-6 py-2 rounded-full border-2 border-brand-red font-semibold focus-visible:ring-2 ring-brand-red" data-category="all" role="button" aria-pressed="true">
+                        🎯 Semua
+                    </button>
+                    <!-- <button class="skill-chip px-6 py-2 rounded-full border-2 border-gray-300 dark:border-gray-700 hover:border-brand-red dark:hover:border-brand-red font-semibold focus-visible:ring-2 ring-brand-red" data-category="cad" role="button" aria-pressed="false">
+                        💻 CAD
+                    </button>
+                    <button class="skill-chip px-6 py-2 rounded-full border-2 border-gray-300 dark:border-gray-700 hover:border-brand-red dark:hover:border-brand-red font-semibold focus-visible:ring-2 ring-brand-red" data-category="mechanical" role="button" aria-pressed="false">
+                        🔧 Mechanical Design
+                    </button>
+                    <button class="skill-chip px-6 py-2 rounded-full border-2 border-gray-300 dark:border-gray-700 hover:border-brand-red dark:hover:border-brand-red font-semibold focus-visible:ring-2 ring-brand-red" data-category="research" role="button" aria-pressed="false">
+                        🔬 R&D
+                    </button>
+                    <button class="skill-chip px-6 py-2 rounded-full border-2 border-gray-300 dark:border-gray-700 hover:border-brand-red dark:hover:border-brand-red font-semibold focus-visible:ring-2 ring-brand-red" data-category="data" role="button" aria-pressed="false">
+                        📊 Data/Komputasi
+                    </button>
+                    <button class="skill-chip px-6 py-2 rounded-full border-2 border-gray-300 dark:border-gray-700 hover:border-brand-red dark:hover:border-brand-red font-semibold focus-visible:ring-2 ring-brand-red" data-category="leadership" role="button" aria-pressed="false">
+                        👥 Leadership
+                    </button> -->
+                </div>
+                
+                <!-- Skills Grid
+                <div id="skills-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6"> -->
+                    <!-- CAD Skills -->
+                    <!-- <div class="skill-card bg-gray-50 dark:bg-brand-black p-6 rounded-xl border border-gray-200 dark:border-gray-800 card-magnetic" data-categories="cad">
+                        <div class="text-4xl mb-4">💻</div>
+                        <h3 class="text-xl font-semibold mb-2 text-gray-800 dark:text-gray-100">AutoCAD</h3>
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="text-sm font-medium text-brand-red">Menengah</span>
+                            <span class="text-xs px-3 py-1 bg-brand-red/20 text-brand-red rounded-full">Sering dipakai</span>
+                        </div>
+                        <p class="text-sm text-gray-600 dark:text-gray-400">Desain teknik 2D untuk dokumentasi dan manufaktur</p>
+                    </div>
+                    
+                    <div class="skill-card bg-gray-50 dark:bg-brand-black p-6 rounded-xl border border-gray-200 dark:border-gray-800 card-magnetic" data-categories="cad">
+                        <div class="text-4xl mb-4">🎨</div>
+                        <h3 class="text-xl font-semibold mb-2 text-gray-800 dark:text-gray-100">SolidWorks</h3>
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="text-sm font-medium text-brand-red">Mahir</span>
+                            <span class="text-xs px-3 py-1 bg-brand-red/20 text-brand-red rounded-full">Sering dipakai</span>
+                        </div>
+                        <p class="text-sm text-gray-600 dark:text-gray-400">Pemodelan 3D, simulasi, dan analisis struktur</p>
+                    </div> -->
+                    
+                    <!-- Mechanical Design -->
+                    <!-- <div class="skill-card bg-gray-50 dark:bg-brand-black p-6 rounded-xl border border-gray-200 dark:border-gray-800 card-magnetic" data-categories="mechanical">
+                        <div class="text-4xl mb-4">🔧</div>
+                        <h3 class="text-xl font-semibold mb-2 text-gray-800 dark:text-gray-100">Desain Komponen</h3>
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="text-sm font-medium text-brand-red">Menengah</span>
+                            <span class="text-xs px-3 py-1 bg-green-600/20 text-green-600 rounded-full">Aktif dipelajari</span>
+                        </div>
+                        <p class="text-sm text-gray-600 dark:text-gray-400">Perancangan part mekanik dengan standar industri</p>
+                    </div>
+                    
+                    <div class="skill-card bg-gray-50 dark:bg-brand-black p-6 rounded-xl border border-gray-200 dark:border-gray-800 card-magnetic" data-categories="mechanical">
+                        <div class="text-4xl mb-4">⚙️</div>
+                        <h3 class="text-xl font-semibold mb-2 text-gray-800 dark:text-gray-100">Sistem Mekanik</h3>
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="text-sm font-medium text-brand-red">Menengah</span>
+                            <span class="text-xs px-3 py-1 bg-brand-red/20 text-brand-red rounded-full">Sering dipakai</span>
+                        </div>
+                        <p class="text-sm text-gray-600 dark:text-gray-400">Integrasi sistem mekanik kompleks dan optimasi</p>
+                    </div> -->
+                    
+                    <!-- Research & Development
+                    <div class="skill-card bg-gray-50 dark:bg-brand-black p-6 rounded-xl border border-gray-200 dark:border-gray-800 card-magnetic" data-categories="research">
+                        <div class="text-4xl mb-4">🔬</div>
+                        <h3 class="text-xl font-semibold mb-2 text-gray-800 dark:text-gray-100">Metodologi Penelitian</h3>
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="text-sm font-medium text-brand-red">Menengah</span>
+                            <span class="text-xs px-3 py-1 bg-blue-600/20 text-blue-600 rounded-full">Proyek akademik</span>
+                        </div>
+                        <p class="text-sm text-gray-600 dark:text-gray-400">Riset eksperimental dan analisis data teknik</p>
+                    </div>
+                    
+                    <div class="skill-card bg-gray-50 dark:bg-brand-black p-6 rounded-xl border border-gray-200 dark:border-gray-800 card-magnetic" data-categories="research">
+                        <div class="text-4xl mb-4">🌱</div>
+                        <h3 class="text-xl font-semibold mb-2 text-gray-800 dark:text-gray-100">Inovasi Teknologi</h3>
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="text-sm font-medium text-brand-red">Pemula</span>
+                            <span class="text-xs px-3 py-1 bg-green-600/20 text-green-600 rounded-full">Aktif dipelajari</span>
+                        </div>
+                        <p class="text-sm text-gray-600 dark:text-gray-400">Python, MATLAB untuk komputasi engineering</p>
+                    </div> -->
+                    
+                    <!-- Leadership -->
+                   <!-- Project Officer PKKMB FT 2025 -->
+<a href="https://www.instagram.com/p/DMrgtPjzuW1/?igsh=M3FpYjg2bGdua3Fm"
+target="_blank"
+rel="noopener noreferrer"
+class="skill-card block bg-gray-50 dark:bg-brand-black p-6 rounded-xl border border-gray-200 dark:border-gray-800 card-magnetic 
+       transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-brand-red/50">
+<div class="text-4xl mb-4">👥</div>
+<h3 class="text-xl font-semibold mb-2 text-gray-800 dark:text-gray-100">Project Officer PKKMB FT 2025</h3>
+<div class="flex items-center justify-between mb-3">
+ <span class="text-sm font-medium text-brand-red">Completed</span>
+</div>
+<p class="text-sm text-gray-600 dark:text-gray-400">
+ PKKMB FT merupakan acara penyambutan mahasiswa baru Fakultas Teknik UPN "Veteran" Jakarta 
+ yang dilaksanakan pada tanggal 13–14 Agustus 2025.
+</p>
+</a>
+
+<!-- Kepala BKSAP MPM UPNVJ -->
+<a href="https://mpm.upnvj.ac.id/"
+target="_blank"
+rel="noopener noreferrer"
+class="skill-card block bg-gray-50 dark:bg-brand-black p-6 rounded-xl border border-gray-200 dark:border-gray-800 card-magnetic 
+       transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-brand-red/50">
+<div class="text-4xl mb-4">📋</div>
+<h3 class="text-xl font-semibold mb-2 text-gray-800 dark:text-gray-100">Kepala BKSAP MPM UPN "Veteran" Jakarta</h3>
+<div class="flex items-center justify-between mb-3">
+ <span class="text-sm font-medium text-brand-red">Masih berjalan</span>
+</div>
+<p class="text-sm text-gray-600 dark:text-gray-400">
+ Badan Kerja Sama Antar Parlemen adalah unit dalam MPM UPN "Veteran" Jakarta yang berfungsi 
+ sebagai penghubung antar lembaga legislatif dan non-legislatif, mempererat hubungan diplomatik 
+ dengan MPM/DPM universitas lain, serta menjalin kerja sama dengan lembaga-lembaga terkait.
+</p>
+</a>
+
+    <!-- Fotografi -->
+<a href="https://www.instagram.com/hasilfotohamba?igsh=YnB2ZGhtaG56N243&utm_source=qr"
+target="_blank"
+rel="noopener noreferrer"
+class="skill-card block bg-gray-50 dark:bg-brand-black p-6 rounded-xl border border-gray-200 dark:border-gray-800 card-magnetic 
+       transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-brand-red/50">
+<div class="text-4xl mb-4">📷</div>
+<h3 class="text-xl font-semibold mb-2 text-gray-800 dark:text-gray-100">Astrophotographer</h3>
+<div class="flex items-center justify-between mb-3">
+ <span class="text-sm font-medium text-brand-red">Masih berjalan selamanya</span>
+</div>
+<p class="text-sm text-gray-600 dark:text-gray-400">
+ @hasilfotohamba merupakan wadah bagi diriku untuk mengabadikan momen dan mensyukuri ciptaan tuhan
+</p>
+</a>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <!-- <section id="projects" class="py-20 bg-gray-50 dark:bg-brand-black scroll-m-24">
+            <div class="max-w-6xl mx-auto px-4">
+                <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 reveal gradient-text">Proyek & Pencapaian</h2>
+                
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="bg-white dark:bg-brand-bg p-6 rounded-xl border-2 border-transparent hover:border-brand-red card-magnetic reveal group">
+                        <div class="text-4xl mb-4 group-hover:rotate-12 transition-transform duration-300">🏗️</div>
+                        <h3 class="text-xl font-semibold mb-3 text-gray-800 dark:text-gray-100">Proyek Desain Mekanik</h3>
+                        <p class="text-gray-600 dark:text-gray-400 mb-4">Merancang sistem mekanik untuk optimasi efisiensi energi</p>
+                        <span class="inline-block bg-blue-600/20 text-blue-600 px-3 py-1 rounded-full text-sm">Akademik</span>
+                    </div>
+                    
+                    <div class="bg-white dark:bg-brand-bg p-6 rounded-xl border-2 border-transparent hover:border-brand-red card-magnetic reveal group">
+                        <div class="text-4xl mb-4 group-hover:rotate-12 transition-transform duration-300">🔋</div>
+                        <h3 class="text-xl font-semibold mb-3 text-gray-800 dark:text-gray-100">Inovasi Energi Terbarukan</h3>
+                        <p class="text-gray-600 dark:text-gray-400 mb-4">Penelitian pengembangan teknologi energi berkelanjutan</p>
+                        <span class="inline-block bg-green-600/20 text-green-600 px-3 py-1 rounded-full text-sm">Research</span>
+                    </div>
+                    
+                    <div class="bg-white dark:bg-brand-bg p-6 rounded-xl border-2 border-transparent hover:border-brand-red card-magnetic reveal group">
+                        <div class="text-4xl mb-4 group-hover:rotate-12 transition-transform duration-300">🤖</div>
+                        <h3 class="text-xl font-semibold mb-3 text-gray-800 dark:text-gray-100">Otomasi Industri</h3>
+                        <p class="text-gray-600 dark:text-gray-400 mb-4">Pengembangan sistem otomasi untuk industri manufaktur</p>
+                        <span class="inline-block bg-brand-red/20 text-brand-red px-3 py-1 rounded-full text-sm">Innovation</span>
+                    </div>
+                </div>
+                
+                <div class="text-center mt-12 reveal">
+                    <button id="show-more-projects" class="ripple bg-brand-red hover:bg-brand-redDark text-white px-8 py-3 rounded-full font-semibold transition duration-300 focus-visible:ring-2 ring-brand-red">
+                        Lihat Proyek Lainnya
+                    </button>
+                </div>
+            </div>
+        </section> -->
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-20 bg-white dark:bg-brand-bg scroll-m-24">
+            <div class="max-w-4xl mx-auto px-4">
+                <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 reveal gradient-text">Mari Berkolaborasi!</h2>
+                
+                <div class="grid md:grid-cols-2 gap-12">
+                    <div class="reveal">
+                        <h3 class="text-2xl font-semibold mb-6 text-gray-800 dark:text-gray-100">Hubungi Saya</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-center space-x-4 p-4 bg-gray-50 dark:bg-brand-black rounded-lg hover:bg-gray-100 dark:hover:bg-gray-900 transition group">
+                                <div class="text-2xl">📧</div>
+                                <div class="flex-1">
+                                    <div class="font-semibold text-gray-800 dark:text-gray-100">Email</div>
+                                    <div class="text-brand-red">azkafyusra@gmail.com</div>
+                                </div>
+                                <button class="copy-email opacity-0 group-hover:opacity-100 transition p-2 hover:bg-gray-200 dark:hover:bg-gray-800 rounded focus-visible:ring-2 ring-brand-red" data-email="azka.faizadilla@upnvj.ac.id" aria-label="Salin email">
+                                    📋
+                                </button>
+                            </div>
+                            
+                            <a href="https://wa.me/6281311856317" target="_blank" rel="noopener noreferrer" class="flex items-center space-x-4 p-4 bg-gray-50 dark:bg-brand-black rounded-lg hover:bg-gray-100 dark:hover:bg-gray-900 transition focus-visible:ring-2 ring-brand-red">
+                                <div class="text-2xl">📱</div>
+                                <div>
+                                    <div class="font-semibold text-gray-800 dark:text-gray-100">WhatsApp</div>
+                                    <div class="text-brand-red">+62 813-1185-6317</div>
+                                </div>
+                            </a>
+                            
+                            <a href="https://linkedin.com/in/azka-yusra-701430287" target="_blank" rel="noopener noreferrer" class="flex items-center space-x-4 p-4 bg-gray-50 dark:bg-brand-black rounded-lg hover:bg-gray-100 dark:hover:bg-gray-900 transition focus-visible:ring-2 ring-brand-red">
+                                <div class="text-2xl">💼</div>
+                                <div>
+                                    <div class="font-semibold text-gray-800 dark:text-gray-100">LinkedIn</div>
+                                    <div class="text-brand-red">linkedin.com/in/azka-faizadilla</div>
+                                </div>
+                            </a>
+                            
+                            <div class="flex items-center space-x-4 p-4 bg-gray-50 dark:bg-brand-black rounded-lg">
+                                <div class="text-2xl">🎓</div>
+                                <div>
+                                    <div class="font-semibold text-gray-800 dark:text-gray-100">Universitas</div>
+                                    <div class="text-brand-red">UPN "Veteran" Jakarta</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="reveal">
+                        <form id="contact-form" class="space-y-6" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                            <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+                            
+                            <div>
+                                <label for="name" class="block text-sm font-semibold mb-2 text-gray-800 dark:text-gray-100">Nama</label>
+                                <input type="text" id="name" name="name" class="w-full px-4 py-3 rounded-lg bg-gray-50 dark:bg-brand-black border border-gray-300 dark:border-gray-700 text-gray-800 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-brand-red transition" placeholder="Nama Anda" required>
+                            </div>
+                            
+                            <div>
+                                <label for="email" class="block text-sm font-semibold mb-2 text-gray-800 dark:text-gray-100">Email</label>
+                                <input type="email" id="email" name="email" class="w-full px-4 py-3 rounded-lg bg-gray-50 dark:bg-brand-black border border-gray-300 dark:border-gray-700 text-gray-800 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-brand-red transition" placeholder="email@example.com" required>
+                            </div>
+                            
+                            <div>
+                                <label for="message" class="block text-sm font-semibold mb-2 text-gray-800 dark:text-gray-100">Pesan</label>
+                                <textarea id="message" name="message" rows="4" class="w-full px-4 py-3 rounded-lg bg-gray-50 dark:bg-brand-black border border-gray-300 dark:border-gray-700 text-gray-800 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-brand-red transition" placeholder="Tulis pesan Anda..." required></textarea>
+                            </div>
+                            
+                            <button type="submit" class="w-full ripple bg-brand-red hover:bg-brand-redDark text-white py-3 rounded-lg font-semibold transition duration-300 focus-visible:ring-2 ring-brand-red">
+                                Kirim Pesan
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 dark:bg-brand-black text-white py-8 border-t border-gray-800">
+        <div class="max-w-6xl mx-auto px-4 text-center">
+            <p class="text-gray-400">&copy; 2024 Azka Faizadilla Yusra.</p>
+        </div>
+    </footer>
+
+    <!-- Projects Modal -->
+    <div id="projects-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <div class="flex items-center justify-center min-h-screen p-4">
+            <div class="modal-content bg-white dark:bg-brand-bg rounded-2xl max-w-4xl w-full max-h-[80vh] overflow-y-auto p-8 relative border-2 border-brand-red">
+                <button id="close-modal" class="absolute top-4 right-4 text-gray-600 dark:text-gray-400 hover:text-brand-red text-3xl focus-visible:ring-2 ring-brand-red rounded" aria-label="Tutup modal">
+                    ×
+                </button>
+                
+                <h3 id="modal-title" class="text-3xl font-bold mb-6 gradient-text">Proyek Lainnya</h3>
+                
+                <div class="space-y-6">
+                    <div class="p-6 bg-gray-50 dark:bg-brand-black rounded-xl border border-gray-200 dark:border-gray-800">
+                        <div class="flex items-start space-x-4">
+                            <div class="text-3xl">🛠️</div>
+                            <div>
+                                <h4 class="text-xl font-semibold mb-2 text-gray-800 dark:text-gray-100">Pengembangan Prototipe Mekanik</h4>
+                                <p class="text-gray-600 dark:text-gray-400 mb-3">Merancang dan memproduksi prototipe sistem transmisi untuk kendaraan listrik dengan efisiensi tinggi.</p>
+                                <span class="inline-block bg-blue-600/20 text-blue-600 px-3 py-1 rounded-full text-sm">Akademik</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="p-6 bg-gray-50 dark:bg-brand-black rounded-xl border border-gray-200 dark:border-gray-800">
+                        <div class="flex items-start space-x-4">
+                            <div class="text-3xl">💡</div>
+                            <div>
+                                <h4 class="text-xl font-semibold mb-2 text-gray-800 dark:text-gray-100">Optimasi Sistem Pendingin</h4>
+                                <p class="text-gray-600 dark:text-gray-400 mb-3">Penelitian untuk meningkatkan efisiensi sistem pendingin pada mesin industri menggunakan CFD analysis.</p>
+                                <span class="inline-block bg-green-600/20 text-green-600 px-3 py-1 rounded-full text-sm">Research</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="p-6 bg-gray-50 dark:bg-brand-black rounded-xl border border-gray-200 dark:border-gray-800">
+                        <div class="flex items-start space-x-4">
+                            <div class="text-3xl">🌍</div>
+                            <div>
+                                <h4 class="text-xl font-semibold mb-2 text-gray-800 dark:text-gray-100">Teknologi Ramah Lingkungan</h4>
+                                <p class="text-gray-600 dark:text-gray-400 mb-3">Pengembangan alat konversi energi terbarukan untuk aplikasi skala kecil di komunitas pedesaan.</p>
+                                <span class="inline-block bg-brand-red/20 text-brand-red px-3 py-1 rounded-full text-sm">Innovation</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="p-6 bg-gray-50 dark:bg-brand-black rounded-xl border border-gray-200 dark:border-gray-800">
+                        <div class="flex items-start space-x-4">
+                            <div class="text-3xl">📐</div>
+                            <div>
+                                <h4 class="text-xl font-semibold mb-2 text-gray-800 dark:text-gray-100">Simulasi Struktur FEA</h4>
+                                <p class="text-gray-600 dark:text-gray-400 mb-3">Analisis kekuatan material dan struktur menggunakan Finite Element Analysis untuk keamanan desain.</p>
+                                <span class="inline-block bg-blue-600/20 text-blue-600 px-3 py-1 rounded-full text-sm">Akademik</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Theme Toggle
+        const html = document.documentElement;
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeToggleMobile = document.getElementById('theme-toggle-mobile');
+        
+        function initTheme() {
+            const savedTheme = localStorage.getItem('theme');
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            
+            if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+                html.classList.add('dark');
+                updateThemeButton(true);
+            } else {
+                html.classList.remove('dark');
+                updateThemeButton(false);
+            }
+        }
+        
+        function updateThemeButton(isDark) {
+            const pressed = isDark ? 'true' : 'false';
+            themeToggle.setAttribute('aria-pressed', pressed);
+            themeToggle.setAttribute('aria-label', isDark ? 'Aktifkan mode terang' : 'Aktifkan mode gelap');
+        }
+        
+        function toggleTheme() {
+            const isDark = html.classList.toggle('dark');
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+            updateThemeButton(isDark);
+        }
+        
+        themeToggle.addEventListener('click', toggleTheme);
+        themeToggleMobile.addEventListener('click', toggleTheme);
+        
+        initTheme();
+        
+        // Mobile Menu
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Smooth Scrolling & Active Nav
+        const navLinks = document.querySelectorAll('.nav-link');
+        const sections = document.querySelectorAll('section[id]');
+        
+        function updateActiveNav() {
+            const scrollY = window.pageYOffset;
+            
+            sections.forEach(section => {
+                const sectionHeight = section.offsetHeight;
+                const sectionTop = section.offsetTop - 100;
+                const sectionId = section.getAttribute('id');
+                
+                if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+                    navLinks.forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === `#${sectionId}`) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        }
+        
+        window.addEventListener('scroll', updateActiveNav);
+        
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+        });
+        
+        // Reveal on Scroll
+        const revealElements = document.querySelectorAll('.reveal');
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+        
+        revealElements.forEach(el => revealObserver.observe(el));
+        
+        // Hero Parallax (mouse movement)
+        const heroContent = document.getElementById('hero-content');
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        
+        if (!prefersReducedMotion) {
+            document.addEventListener('mousemove', (e) => {
+                const x = (e.clientX / window.innerWidth - 0.5) * 20;
+                const y = (e.clientY / window.innerHeight - 0.5) * 20;
+                heroContent.style.transform = `translate(${x}px, ${y}px)`;
+            });
+        }
+        
+        // Skills Filter
+        const skillChips = document.querySelectorAll('.skill-chip');
+        const skillCards = document.querySelectorAll('.skill-card');
+        
+        skillChips.forEach(chip => {
+            chip.addEventListener('click', function() {
+                const category = this.getAttribute('data-category');
+                
+                skillChips.forEach(c => {
+                    c.classList.remove('active');
+                    c.setAttribute('aria-pressed', 'false');
+                });
+                
+                this.classList.add('active');
+                this.setAttribute('aria-pressed', 'true');
+                
+                skillCards.forEach(card => {
+                    const categories = card.getAttribute('data-categories');
+                    
+                    if (category === 'all' || categories.includes(category)) {
+                        card.classList.remove('hidden');
+                        setTimeout(() => {
+                            card.style.opacity = '1';
+                            card.style.transform = 'scale(1)';
+                        }, 10);
+                    } else {
+                        card.style.opacity = '0';
+                        card.style.transform = 'scale(0.9)';
+                        setTimeout(() => {
+                            card.classList.add('hidden');
+                        }, 400);
+                    }
+                });
+            });
+            
+            // Keyboard navigation
+            chip.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    chip.click();
+                }
+            });
+        });
+        
+        // Projects Modal
+        const showMoreBtn = document.getElementById('show-more-projects');
+        const modal = document.getElementById('projects-modal');
+        const closeModalBtn = document.getElementById('close-modal');
+        const modalContent = modal.querySelector('.modal-content');
+        
+        let focusableElements;
+        let firstFocusable;
+        let lastFocusable;
+        
+        function openModal() {
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            
+            focusableElements = modalContent.querySelectorAll('button, a, [tabindex]:not([tabindex="-1"])');
+            firstFocusable = focusableElements[0];
+            lastFocusable = focusableElements[focusableElements.length - 1];
+            
+            closeModalBtn.focus();
+        }
+        
+        function closeModal() {
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+            showMoreBtn.focus();
+        }
+        
+        showMoreBtn.addEventListener('click', openModal);
+        closeModalBtn.addEventListener('click', closeModal);
+        
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) closeModal();
+        });
+        
+        document.addEventListener('keydown', (e) => {
+            if (!modal.classList.contains('active')) return;
+            
+            if (e.key === 'Escape') {
+                closeModal();
+            }
+            
+            if (e.key === 'Tab') {
+                if (e.shiftKey) {
+                    if (document.activeElement === firstFocusable) {
+                        e.preventDefault();
+                        lastFocusable.focus();
+                    }
+                } else {
+                    if (document.activeElement === lastFocusable) {
+                        e.preventDefault();
+                        firstFocusable.focus();
+                    }
+                }
+            }
+        });
+        
+        // Copy Email
+        document.querySelectorAll('.copy-email').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                const email = this.getAttribute('data-email');
+                navigator.clipboard.writeText(email).then(() => {
+                    showToast('Email berhasil disalin!');
+                });
+            });
+        });
+        
+        // Contact Form
+        const contactForm = document.getElementById('contact-form');
+        
+        contactForm.addEventListener('submit', function(e) {
+            // If using Formspree, it will handle the submission
+            // Otherwise, prevent default and show toast
+            if (!this.action || this.action.includes('YOUR_FORM_ID')) {
+                e.preventDefault();
+                
+                const name = this.querySelector('#name').value;
+                const email = this.querySelector('#email').value;
+                const message = this.querySelector('#message').value;
+                
+                if (name && email && message) {
+                    showToast(`Terima kasih ${name}! Pesan Anda telah diterima. Saya akan segera menghubungi Anda.`);
+                    this.reset();
+                }
+            }
+        });
+        
+        // Toast Notification
+        function showToast(message) {
+            const toast = document.createElement('div');
+            toast.className = 'toast';
+            toast.textContent = message;
+            document.body.appendChild(toast);
+            
+            setTimeout(() => {
+                toast.style.animation = 'slideIn 0.4s ease reverse';
+                setTimeout(() => toast.remove(), 400);
+            }, 3000);
+        }
+        
+        // Initial animations
+        window.addEventListener('load', () => {
+            document.body.classList.add('loaded');
+        });
+    </script>
+</body>
