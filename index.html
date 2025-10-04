@@ -987,25 +987,55 @@ class="skill-card block bg-gray-50 dark:bg-brand-black p-6 rounded-xl border bor
             });
         });
         
-        // Contact Form
-        const contactForm = document.getElementById('contact-form');
-        
-        contactForm.addEventListener('submit', function(e) {
-            // If using Formspree, it will handle the submission
-            // Otherwise, prevent default and show toast
-            if (!this.action || this.action.includes('https://formspree.io/f/mdkwdkjj')) {
-                e.preventDefault();
-                
-                const name = this.querySelector('#name').value;
-                const email = this.querySelector('#email').value;
-                const message = this.querySelector('#message').value;
-                
-                if (name && email && message) {
-                    showToast(`Terima kasih ${name}! Pesan Anda telah diterima. Saya akan segera menghubungi Anda.`);
-                    this.reset();
-                }
-            }
-        });
+        // Contact Form (AJAX ke Formspree, tanpa redirect)
+const contactForm = document.getElementById('contact-form');
+
+contactForm.addEventListener('submit', async function (e) {
+  e.preventDefault(); // cegah submit default (yang bikin redirect)
+
+  // Honeypot: kalau terisi, anggap bot → jangan kirim
+  const honeypot = this.querySelector('input[name="_gotcha"]');
+  if (honeypot && honeypot.value) return;
+
+  const name = this.querySelector('#name')?.value?.trim();
+  const email = this.querySelector('#email')?.value?.trim();
+  const message = this.querySelector('#message')?.value?.trim();
+  if (!name || !email || !message) {
+    showToast('Lengkapi nama, email, dan pesan.', 'error');
+    return;
+  }
+
+  const submitBtn = this.querySelector('[type="submit"]');
+  if (submitBtn) {
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Mengirim...';
+  }
+
+  try {
+    const res = await fetch(this.action, {
+      method: 'POST',
+      headers: { 'Accept': 'application/json' }, // <- penting: cegah redirect
+      body: new FormData(this)
+    });
+
+    if (res.ok) {
+      showToast(`Terima kasih ${name}! Pesan kamu sudah terkirim.`, 'success');
+      this.reset();
+    } else {
+      const data = await res.json().catch(() => ({}));
+      const err = data?.errors?.[0]?.message || 'Terjadi kesalahan saat mengirim.';
+      showToast(err, 'error');
+    }
+  } catch (_) {
+    showToast('Gagal mengirim. Periksa koneksi internetmu.', 'error');
+  } finally {
+    if (submitBtn) {
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Kirim Pesan';
+    }
+  }
+});
+
         
         // Toast Notification
         function showToast(message) {
